@@ -9,7 +9,7 @@
     "url": "git+https://github.com/formilyjs/template.git"
   },
   "bin": {
-    "template": "lib"
+    "template": "lib/cli.js"
   },
   "types": "esm/index.d.ts",
   "bugs": {
@@ -21,6 +21,7 @@
   },
   "scripts": {
     "build": "rimraf -rf lib esm && npm run build:cjs && npm run build:esm",
+    "build:debug": "npm run build && sudo chmod +x lib/cli.js",
     "build:cjs": "tsc",
     "build:esm": "tsc --module es2015 --outDir esm"
   },
@@ -69,9 +70,10 @@
     "fs-extra": "^10.0.0",
     "glob": "^7.1.3",
     "rimraf": "^3.0.2",
-    "execa": "^6.0.0",
+    "execa": "^5.0.0",
     "@rollup/plugin-commonjs": "^17.0.0",
     "rollup": "^2.37.1",
+    "postcss": "^8.3.11",
     "rollup-plugin-external-globals": "^0.6.1",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-postcss": "^4.0.0",
@@ -84,8 +86,7 @@
     "less-loader": "^5.0.0",
     "less-plugin-npm-import": "^2.1.0",
     "param-case": "^3.0.4",
-    "pascal-case": "^3.1.2",
-    "commander": "^6.x"
+    "pascal-case": "^3.1.2"
   },
   "publishConfig": {
     "access": "public"

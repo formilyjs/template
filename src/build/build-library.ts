@@ -1,6 +1,6 @@
 import fs from 'fs-extra'
 import path from 'path'
-import { execaSync } from 'execa'
+import execa from 'execa'
 import { cwd } from './constants'
 
 const hasBuildConfig = async () => {
@@ -17,7 +17,7 @@ const buildDefault = async (params: string[] = []) => {
   if (hasProjects) {
     params.push('--project', 'tsconfig.build.json')
   }
-  const results = execaSync('tsc', params)
+  const results = execa.sync('tsc', params)
   process.stdout.write(results.stdout)
   process.stderr.write(results.stderr)
 }

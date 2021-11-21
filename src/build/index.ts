@@ -2,7 +2,7 @@ import path from 'path'
 import fs from 'fs-extra'
 import glob from 'glob'
 import rimraf from 'rimraf'
-import { execaSync } from 'execa'
+import execa from 'execa'
 import { cwd } from './constants'
 import { buildRootStyle } from './build-root-style'
 import { copyStyleFiles } from './copy-style-files'
@@ -76,9 +76,7 @@ const buildPackage = async () => {
 const buildPackages = async () => {
   const isMonorepo = await isMonorepoRoot()
   if (isMonorepo) {
-    const results = execaSync('lerna', ['run', 'build'])
-    process.stdout.write(results.stdout)
-    process.stderr.write(results.stderr)
+    execa.sync('lerna', ['run', 'build'])
   } else {
     await buildPackage()
   }

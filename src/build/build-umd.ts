@@ -10,7 +10,8 @@ import { OutputOptions, rollup, RollupOptions } from 'rollup'
 import { terser } from 'rollup-plugin-terser'
 import { paramCase } from 'param-case'
 import { pascalCase } from 'pascal-case'
-import { pkg } from './constants'
+import { cwd, pkg } from './constants'
+import path from 'path'
 
 const parseName = () => {
   const name = String(pkg?.name || '')
@@ -28,7 +29,6 @@ const buildAll = async (inputs: RollupOptions[]) => {
     const { output, ...options } = input
     const bundle = await rollup(options)
     await bundle.write(output as OutputOptions)
-    await bundle.close()
   }
 }
 
@@ -67,9 +67,7 @@ const presets = () => {
     }),
     resolve(),
     commonjs(),
-    externalGlobals(externals, {
-      exclude: ['**/*.{less,sass,scss}'],
-    }),
+    externalGlobals(externals),
   ]
 }
 
@@ -89,10 +87,10 @@ export const buildUmd = async () => {
   const { name, filename, moduleName, rootName } = parseName()
   await buildAll([
     {
-      input: 'src/style.ts',
+      input: 'src/index.ts',
       output: {
         format: 'umd',
-        file: `dist/${filename}.umd.development.js`,
+        file: path.resolve(cwd, `dist/${filename}.umd.development.js`),
         name: rootName,
         sourcemap: true,
         amd: {
@@ -101,19 +99,19 @@ export const buildUmd = async () => {
       },
       external: ['react', 'react-dom', 'react-is'],
       plugins: [
-        ...presets(),
         ignoreImport({
           extensions: ['.scss', '.css', '.less'],
           body: 'export default undefined;',
         }),
+        ...presets(),
         createEnvPlugin(),
       ],
     },
     {
-      input: 'src/style.ts',
+      input: 'src/index.ts',
       output: {
         format: 'umd',
-        file: `dist/${filename}.umd.production.js`,
+        file: path.resolve(cwd, `dist/${filename}.umd.production.js`),
         name: rootName,
         sourcemap: true,
         amd: {
@@ -122,10 +120,8 @@ export const buildUmd = async () => {
       },
       external: ['react', 'react-dom', 'react-is'],
       plugins: [
-        ...presets(),
-        terser(),
         postcss({
-          extract: `dist/${moduleName}.css`,
+          extract: path.resolve(cwd, `dist/${moduleName}.css`),
           minimize: true,
           sourceMap: true,
           use: {
@@ -137,6 +133,8 @@ export const buildUmd = async () => {
             stylus: {},
           },
         }),
+        ...presets(),
+        terser(),
         createEnvPlugin('production'),
       ],
     },
