@@ -1,0 +1,93 @@
+{
+  "name": "@formily/template",
+  "version": "1.0.0-alpha.0",
+  "license": "MIT",
+  "main": "lib",
+  "module": "esm",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/formilyjs/template.git"
+  },
+  "bin": {
+    "template": "lib"
+  },
+  "types": "esm/index.d.ts",
+  "bugs": {
+    "url": "https://github.com/formilyjs/template/issues"
+  },
+  "homepage": "https://github.com/formilyjs/template#readme",
+  "engines": {
+    "npm": ">=3.0.0"
+  },
+  "scripts": {
+    "build": "rimraf -rf lib esm && npm run build:cjs && npm run build:esm",
+    "build:cjs": "tsc",
+    "build:esm": "tsc --module es2015 --outDir esm"
+  },
+  "resolutions": {
+    "yargs": "^16.x",
+    "commander": "^6.x"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.9",
+    "@types/glob": "^7.2.0",
+    "@types/rimraf": "^3.0.2",
+    "@types/fs-extra": "^9.0.13",
+    "ghooks": "^2.0.4",
+    "lint-staged": "^8.2.1",
+    "@commitlint/cli": "^14.1.0",
+    "@commitlint/prompt-cli": "^14.1.0",
+    "@commitlint/config-conventional": "^14.1.0",
+    "@typescript-eslint/eslint-plugin": "^4.9.1",
+    "@typescript-eslint/parser": "^4.8.2",
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.5"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint --edit"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx,js}": [
+      "eslint --ext .ts,.tsx,.js",
+      "pretty-quick --staged",
+      "git add"
+    ],
+    "*.md": [
+      "pretty-quick --staged",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "fs-extra": "^10.0.0",
+    "glob": "^7.1.3",
+    "rimraf": "^3.0.2",
+    "execa": "^6.0.0",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "rollup": "^2.37.1",
+    "rollup-plugin-external-globals": "^0.6.1",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^4.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "rollup-plugin-ignore-import": "^1.3.2",
+    "rollup-plugin-inject-process-env": "^1.3.1",
+    "rollup-plugin-dts": "^2.0.0",
+    "less": "^4.1.1",
+    "less-loader": "^5.0.0",
+    "less-plugin-npm-import": "^2.1.0",
+    "param-case": "^3.0.4",
+    "pascal-case": "^3.1.2",
+    "commander": "^6.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

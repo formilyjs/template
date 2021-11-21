@@ -1,0 +1,84 @@
+{
+  "name": "root",
+  "private": true,
+  "devEngines": {
+    "node": "8.x || 9.x || 10.x || 11.x"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "dumi dev",
+    "build": "@formily/template build",
+    "build:docs": "dumi build",
+    "test": "jest --coverage",
+    "test:prod": "jest --coverage --silent",
+    "preversion": "yarn install --ignore-engines && npm run build && npm run lint && npm run test",
+    "version:alpha": "lerna version prerelease --preid alpha",
+    "version:beta": "lerna version prerelease --preid beta",
+    "version:rc": "lerna version prerelease --preid rc",
+    "version:patch": "lerna version patch",
+    "version:minor": "lerna version minor",
+    "version:preminor": "lerna version preminor --preid beta",
+    "version:major": "lerna version major",
+    "release": "lerna publish from-package --yes",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.0.0",
+    "@testing-library/react": "^11.2.3",
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.6.8",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.9.1",
+    "@typescript-eslint/parser": "^4.8.2",
+    "@umijs/plugin-sass": "^1.1.1",
+    "dumi": "^1.1.0",
+    "escape-string-regexp": "^4.0.0",
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-markdown": "^2.0.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-promise": "^4.0.0",
+    "eslint-plugin-react": "^7.14.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "ghooks": "^2.0.4",
+    "lint-staged": "^8.2.1",
+    "@commitlint/cli": "^14.1.0",
+    "@commitlint/prompt-cli": "^14.1.0",
+    "@commitlint/config-conventional": "^14.1.0",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "ts-import-plugin": "1.6.1",
+    "ts-jest": "^26.0.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/formilyjs/<%= repoName %>.git"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint --edit"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js}": [
+      "eslint --ext .ts,.tsx,.js",
+      "pretty-quick --staged",
+      "git add"
+    ],
+    "*.md": [
+      "pretty-quick --staged",
+      "git add"
+    ]
+  },
+  "dependencies": {}
+}

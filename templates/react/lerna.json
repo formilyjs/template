@@ -1,0 +1,56 @@
+{
+  "version": "1.0.0-alpha.0",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "npmClientArgs": ["--ignore-engines"],
+  "changelogPreset": {
+    "name": "conventionalcommits",
+    "types": [
+      {
+        "type": "feat",
+        "section": ":tada: Features"
+      },
+      {
+        "type": "fix",
+        "section": ":bug: Bug Fixes"
+      },
+      {
+        "type": "perf",
+        "section": ":rocket: Performance Improvements"
+      },
+      {
+        "type": "docs",
+        "section": ":memo: Documentation"
+      },
+      {
+        "type": "chore",
+        "section": ":blush: Other Changes"
+      },
+      {
+        "type": "refactor",
+        "section": ":rose: Improve code quality"
+      },
+      {
+        "type": "test",
+        "section": ":construction: Tests"
+      },
+      {
+        "type": "build",
+        "section": ":hammer_and_wrench: Build System"
+      },
+      {
+        "type": "ci",
+        "section": ":seedling: Continuous Integration",
+        "hidden": true
+      }
+    ],
+    "issueUrlFormat": "{{host}}/{{owner}}/{{repository}}/issues/{{id}}"
+  },
+  "command": {
+    "version": {
+      "forcePublish": true,
+      "exact": true,
+      "message": "chore(release): 😊 publish %s"
+    }
+  }
+}
