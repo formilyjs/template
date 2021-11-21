@@ -6,4 +6,6 @@ export interface IBuilderConfig {
   targetLibCjsDir?: string
   //核心三方库es目录名
   targetLibEsDir?: string
+  //是否打包全量类型文件
+  bundleDts?: boolean
 }

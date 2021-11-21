@@ -9,7 +9,7 @@
     "url": "git+https://github.com/formilyjs/template.git"
   },
   "bin": {
-    "template": "lib/cli.js"
+    "formily-tpl": "lib/cli.js"
   },
   "types": "esm/index.d.ts",
   "bugs": {
