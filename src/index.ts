@@ -1,6 +1,3 @@
-import { build } from './build'
-
-if (process.argv.includes('build')) {
-  build()
-} else if (process.argv.includes('init')) {
-}
+export * from './build'
+export * from './init'
+export * from './types'

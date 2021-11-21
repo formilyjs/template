@@ -76,7 +76,7 @@ const buildPackage = async () => {
 const buildPackages = async () => {
   const isMonorepo = await isMonorepoRoot()
   if (isMonorepo) {
-    execa.sync('lerna', ['run', 'build'])
+    execa('lerna', ['run', 'build']).stdout.pipe(process.stdout)
   } else {
     await buildPackage()
   }

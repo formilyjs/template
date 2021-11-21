@@ -15,15 +15,20 @@ const hasBuildConfig = async () => {
 const buildDefault = async (params: string[] = []) => {
   const hasProjects = await hasBuildConfig()
   if (hasProjects) {
-    params.push('--project', 'tsconfig.build.json')
+    params.push('--project', 'tsconfig.build.json', '--sourceRoot', 'lib')
   }
-  const results = execa.sync('tsc', params)
-  process.stdout.write(results.stdout)
-  process.stderr.write(results.stderr)
+  execa('tsc', params).stdout.pipe(process.stdout)
 }
 
 const buildEsm = async () => {
-  await buildDefault(['--module', 'es2015', '--outDir', 'esm'])
+  await buildDefault([
+    '--module',
+    'es2015',
+    '--outDir',
+    'esm',
+    '--sourceRoot',
+    'esm',
+  ])
 }
 
 export const buildLibrary = async () => {
