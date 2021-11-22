@@ -22,7 +22,7 @@
     "**/*/style.js"
   ],
   "scripts": {
-    "build": "template build"
+    "build": "formily-tpl build"
   },
   "repository": {
     "type": "git",
@@ -41,8 +41,5 @@
     "react-is": ">=16.8.0 || >=17.0.0"
   },
   "dependencies": {},
-  "devDependencies": {
-    "typescript": "^4.4.0",
-    "@formily/template": "^1.0.0-alpha.0"
-  }
+  "devDependencies": {}
 }

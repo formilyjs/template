@@ -6,11 +6,12 @@ import postcss from 'rollup-plugin-postcss'
 import NpmImport from 'less-plugin-npm-import'
 import ignoreImport from 'rollup-plugin-ignore-import'
 import externalGlobals from 'rollup-plugin-external-globals'
+import dts from 'rollup-plugin-dts'
 import { OutputOptions, rollup, RollupOptions } from 'rollup'
 import { terser } from 'rollup-plugin-terser'
 import { paramCase } from 'param-case'
 import { pascalCase } from 'pascal-case'
-import { cwd, pkg } from './constants'
+import { cwd, pkg, builderConfigs } from '../constants'
 import path from 'path'
 
 const parseName = () => {
@@ -54,6 +55,7 @@ const presets = () => {
     '@formily/json-schema': 'Formily.JSONSchema',
     '@formily/react': 'Formily.React',
     '@formily/vue': 'Formily.Vue',
+    ...builderConfigs.externals,
   }
   return [
     typescript({
@@ -85,7 +87,7 @@ const createEnvPlugin = (env = 'development') => {
 
 export const buildUmd = async () => {
   const { name, filename, moduleName, rootName } = parseName()
-  await buildAll([
+  const configs: RollupOptions[] = [
     {
       input: 'src/index.ts',
       output: {
@@ -138,5 +140,30 @@ export const buildUmd = async () => {
         createEnvPlugin('production'),
       ],
     },
-  ])
+  ]
+  if (builderConfigs.bundleDts) {
+    configs.push(
+      {
+        input: 'esm/index.d.ts',
+        output: {
+          format: 'es',
+          file: `dist/${filename}.d.ts`,
+        },
+        plugins: [dts()],
+      },
+      {
+        input: 'esm/index.d.ts',
+        output: {
+          format: 'es',
+          file: `dist/${filename}.all.d.ts`,
+        },
+        plugins: [
+          dts({
+            respectExternal: true,
+          }),
+        ],
+      }
+    )
+  }
+  await buildAll(configs)
 }

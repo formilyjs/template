@@ -1,7 +1,7 @@
 import glob from 'glob'
 import path from 'path'
 import fs from 'fs-extra'
-import { cwd } from './constants'
+import { cwd } from '../constants'
 
 const createStyleFile = (files: string[]) => {
   return `// auto generated code

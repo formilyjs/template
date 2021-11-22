@@ -1,7 +1,7 @@
 import fs from 'fs-extra'
 import path from 'path'
 import execa from 'execa'
-import { cwd } from './constants'
+import { cwd } from '../constants'
 
 const hasBuildConfig = async () => {
   try {
