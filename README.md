@@ -5,7 +5,7 @@
 ## 安装
 
 ```bash
-npm install -g @formily/template
+npm install -g ts-node @formily/template
 ```
 
 ## 初始化
