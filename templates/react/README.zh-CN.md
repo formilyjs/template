@@ -16,11 +16,11 @@
 
 ---
 
-## Overview
+## 概要
 
 这是一个结合了 Formily & <%= brandName %>的超酷组件库.
 
-## Features
+## 特性
 
 - 🖼 可设计，借助 Form Builder 可以快速搭建表单
 - 🚀 高性能，字段分布式渲染，大大减轻 React 渲染压力
@@ -29,7 +29,7 @@
 - 🏅 副作用逻辑独立管理，涵盖各种复杂联动校验逻辑
 - 🌯 支持各种表单复杂布局方案
 
-## Form Builder
+## 表单设计器
 
 ![https://designable-antd.formilyjs.org/](https://img.alicdn.com/imgextra/i3/O1CN01xAJj1y1wcGzXYc1Uq_!!6000000006328-2-tps-2980-1740.png)
 
@@ -37,7 +37,7 @@
 
 https://<%= repoName %>.formilyjs.org
 
-## Community
+## 生态产品
 
 - [formily](https://github.com/alibaba/formily)
 - [formilyjs](https://github.com/formilyjs)
