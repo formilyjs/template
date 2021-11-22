@@ -89,9 +89,9 @@ import {
   connect,
   createSchemaField,
 } from '@formily/react'
-import { Button, Input as AntdInput } from 'antd'
+import { Button, Input as <%= pascalName %>Input } from '<%= packageName %>'
 
-const Input = connect(AntdInput, mapReadPretty(PreviewText.Input))
+const Input = connect(<%= pascalName %>Input, mapReadPretty(PreviewText.Input))
 
 const SchemaField = createSchemaField({
   components: {

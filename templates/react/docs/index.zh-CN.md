@@ -2,8 +2,8 @@
 title: Formily - 阿里巴巴统一前端表单解决方案
 order: 10
 hero:
-  title: Formily Antd
-  desc: 基于Ant Design封装的优雅且易用的Formily2.x组件体系
+  title: Formily <%= pascalName %>
+  desc: 基于<%= brandName %>封装的优雅且易用的Formily2.x组件体系
   actions:
     - text: 主站文档
       link: //formilyjs.org
@@ -25,7 +25,7 @@ footer: Open-source MIT Licensed | Copyright © 2019-present<br />Powered by sel
 ## 安装
 
 ```bash
-$ npm install --save antd moment
+$ npm install --save <%= packageName %> moment
 $ npm install --save @formily/core @formily/react @formily/<%= repoName %>
 
 ```

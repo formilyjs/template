@@ -1,6 +1,6 @@
 # FormItem
 
-> The brand-new FormItem component, compared to Antd's FormItem, it supports more functions. At the same time, it is positioned as a pure style component and does not manage the state of the form, so it will be lighter and more convenient for customization
+> The brand-new FormItem component, compared to <%= pascalName %>'s FormItem, it supports more functions. At the same time, it is positioned as a pure style component and does not manage the state of the form, so it will be lighter and more convenient for customization
 
 ## Markup Schema example
 

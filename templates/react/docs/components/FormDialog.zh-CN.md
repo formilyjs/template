@@ -20,7 +20,7 @@ import {
   Input,
 } from '@formily/<%= repoName %>'
 import { createSchemaField } from '@formily/react'
-import { Button } from 'antd'
+import { Button } from '<%= packageName %>'
 
 const SchemaField = createSchemaField({
   components: {
@@ -126,7 +126,7 @@ import {
   Input,
 } from '@formily/<%= repoName %>'
 import { createSchemaField } from '@formily/react'
-import { Button } from 'antd'
+import { Button } from '<%= packageName %>'
 
 const SchemaField = createSchemaField({
   components: {
@@ -227,7 +227,7 @@ import {
   Input,
 } from '@formily/<%= repoName %>'
 import { Field } from '@formily/react'
-import { Button } from 'antd'
+import { Button } from '<%= packageName %>'
 
 export default () => {
   return (

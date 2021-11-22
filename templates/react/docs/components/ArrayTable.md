@@ -18,7 +18,7 @@ import {
 } from '@formily/<%= repoName %>'
 import { createForm } from '@formily/core'
 import { FormProvider, createSchemaField } from '@formily/react'
-import { Button, Alert } from 'antd'
+import { Button, Alert } from '<%= packageName %>'
 
 const SchemaField = createSchemaField({
   components: {
@@ -315,7 +315,7 @@ import {
 } from '@formily/<%= repoName %>'
 import { createForm, onFieldChange, onFieldReact } from '@formily/core'
 import { FormProvider, createSchemaField } from '@formily/react'
-import { Button } from 'antd'
+import { Button } from '<%= packageName %>'
 
 const SchemaField = createSchemaField({
   components: {

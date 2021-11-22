@@ -2,8 +2,8 @@
 title: Formily-Alibaba unified front-end form solution
 order: 10
 hero:
-  title: Formily Antd
-  desc: Formily Component System Based on Ant Design Encapsulation
+  title: Formily <%= pascalName %>
+  desc: Formily Component System Based on <%= brandName %> Encapsulation
   actions:
     - text: Home Site
       link: //formilyjs.org
@@ -25,7 +25,7 @@ footer: Open-source MIT Licensed | Copyright © 2019-present<br />Powered by sel
 ## Installation
 
 ```bash
-$ npm install --save antd moment
+$ npm install --save <%= packageName %> moment
 $ npm install --save @formily/core @formily/react @formily/<%= repoName %>
 
 ```

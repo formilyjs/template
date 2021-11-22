@@ -5,10 +5,12 @@
 ## 安装
 
 ```bash
-npm install --save-dev @formily/template
+npm install --g @formily/template
 ```
 
 ## 初始化
+
+先 cd 到你需要初始化的项目目录，执行以下命令
 
 ```bash
 formily-tpl init
