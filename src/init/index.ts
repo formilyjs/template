@@ -1,8 +1,9 @@
 import path from 'path'
 import prompts from 'prompts'
 import { pascalCase } from 'pascal-case'
-import { templates } from '../constants'
+import { cwd, templates } from '../constants'
 import { generate } from './generate'
+import execa from 'execa'
 
 const required = (value: string) => (!value ? 'this field is required' : true)
 
@@ -51,5 +52,8 @@ export const init = async () => {
   ])
   if (params.repoName) {
     await generate({ ...params, pascalName: pascalCase(params.repoName) })
+    execa('yarn', ['install', '--ignore-engines'], { cwd }).stdout.pipe(
+      process.stdout
+    )
   }
 }
