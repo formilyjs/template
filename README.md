@@ -2,6 +2,12 @@
 
 > Formily 桥接组件库生态脚手架
 
+## 安装
+
+```bash
+npm install -g @formily/template
+```
+
 ## 初始化
 
 先 cd 到你需要初始化的项目目录，执行以下命令
