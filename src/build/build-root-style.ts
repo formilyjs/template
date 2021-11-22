@@ -19,6 +19,7 @@ export const buildRootStyle = () => {
       { cwd: path.resolve(cwd, './src') },
       async (err, files) => {
         if (err) return reject(err)
+        if (files.length === 0) return resolve(0)
         await fs.writeFile(
           path.resolve(cwd, './src/style.ts'),
           createStyleFile(files),
