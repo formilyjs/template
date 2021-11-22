@@ -1,6 +1,6 @@
 {
   "name": "@formily/template",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "license": "MIT",
   "main": "lib",
   "module": "esm",
@@ -33,6 +33,7 @@
     "ts-node": "^9.1.1"
   },
   "devDependencies": {
+    "@types/ejs": "^3.1.0",
     "@types/node": "^16.11.9",
     "@types/glob": "^7.2.0",
     "@types/rimraf": "^3.0.2",
@@ -90,7 +91,8 @@
     "pascal-case": "^3.1.2",
     "prompts": "^2.4.2",
     "ts-node": "^9.1.1",
-    "typescript": "^4.1.5"
+    "typescript": "^4.1.5",
+    "ejs": "^3.1.6"
   },
   "publishConfig": {
     "access": "public"
