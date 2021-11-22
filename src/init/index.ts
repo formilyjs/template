@@ -49,6 +49,7 @@ export const init = async () => {
       validate: required,
     },
   ])
-
-  await generate({ ...params, pascalName: pascalCase(params.repoName) })
+  if (params.repoName) {
+    await generate({ ...params, pascalName: pascalCase(params.repoName) })
+  }
 }
