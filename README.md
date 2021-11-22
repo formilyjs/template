@@ -5,7 +5,7 @@
 ## 安装
 
 ```bash
-npm install -g ts-node @formily/template
+npm install -g npx
 ```
 
 ## 初始化
@@ -13,7 +13,7 @@ npm install -g ts-node @formily/template
 先 cd 到你需要初始化的项目目录，执行以下命令
 
 ```bash
-formily-tpl init
+npx formily-tpl init
 ```
 
 ## 构建
