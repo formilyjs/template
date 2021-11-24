@@ -26,6 +26,8 @@ export const generate = (params: IGeneratorParams) => {
         files.forEach((filename) => {
           const filepath = path.resolve(base, filename)
           const dist = path.resolve(cwd, filename)
+          const distPath =
+            path.basename(dist) === '.gitignore.tpl' ? '.gitignore' : dist
           const stat = fs.statSync(filepath)
           if (stat.isDirectory()) {
             fs.copySync(filepath, dist)
@@ -33,7 +35,7 @@ export const generate = (params: IGeneratorParams) => {
           }
           const contents = fs.readFileSync(filepath, 'utf-8')
           const template = ejs.compile(contents)
-          fs.writeFileSync(dist, template(params))
+          fs.writeFileSync(distPath, template(params))
         })
         console.log('🎉🎉 generate success!')
         resolve(0)
