@@ -1,4 +1,4 @@
-# Element-UI
+# <%= pascalName %>
 
 ## 介绍
 
@@ -66,7 +66,7 @@ $ npm install --save @formily/core @formily/vue @vue/composition-api @formily/<%
 
 ## 按需打包
 
-`Element-UI` 按需引入参见 [https://element.eleme.io/#/zh-CN/component/quickstart#an-xu-yin-ru](https://element.eleme.io/#/zh-CN/component/quickstart#an-xu-yin-ru)
+`<%= pascalName %>` 按需引入参见 [https://element.eleme.io/#/zh-CN/component/quickstart#an-xu-yin-ru](https://element.eleme.io/#/zh-CN/component/quickstart#an-xu-yin-ru)
 
 `@formily/<%= repoName %>`按需引入需借助 `babel-plugin-import`
 
