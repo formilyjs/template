@@ -7,7 +7,7 @@ const componentFiles = utils
   .filter((item) => !['el-form', 'el-form-item', 'index'].includes(item))
 
 module.exports = {
-  title: 'Formily Element',
+  title: 'Formily <%= pascalName %>',
   dest: './doc-site',
   theme: '@vuepress-dumi/dumi',
   head: [
