@@ -1,6 +1,6 @@
 {
   "name": "@formily/template",
-  "version": "1.0.0-alpha.12",
+  "version": "1.0.0-alpha.13",
   "license": "MIT",
   "main": "lib",
   "module": "esm",
