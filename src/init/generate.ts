@@ -26,8 +26,7 @@ export const generate = (params: IGeneratorParams) => {
         files.forEach((filename) => {
           const filepath = path.resolve(base, filename)
           const dist = path.resolve(cwd, filename)
-          const distPath =
-            path.basename(dist) === '.gitignore.tpl' ? '.gitignore' : dist
+          const distPath = dist.replace(/ignore\.tpl$/, 'ignore')
           const stat = fs.statSync(filepath)
           if (stat.isDirectory()) {
             fs.copySync(filepath, dist)
