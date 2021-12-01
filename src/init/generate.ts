@@ -23,13 +23,16 @@ export const generate = (params: IGeneratorParams) => {
       },
       (err, files) => {
         if (err) return reject(err)
+
         files.forEach((filename) => {
           const filepath = path.resolve(base, filename)
           const dist = path.resolve(cwd, filename)
           const distPath = dist.replace(/ignore\.tpl$/, 'ignore')
           const stat = fs.statSync(filepath)
           if (stat.isDirectory()) {
-            fs.copySync(filepath, dist)
+            fs.copySync(filepath, dist, (src: string) => {
+              return !src.includes('.tpl')
+            })
             return
           }
           const contents = fs.readFileSync(filepath, 'utf-8')
