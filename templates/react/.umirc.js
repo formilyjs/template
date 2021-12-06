@@ -53,7 +53,9 @@ export default {
       background-position: center left!important;
       background-repeat: no-repeat!important;
       padding-left: 150px!important;  /*可根据title的宽度调整*/
-      font-size: 18px!important;
+      color: #000;
+      font-weight: lighter;
+      font-size: 22px !important;
     }
     .__dumi-default-navbar{
       padding: 0 28px !important;

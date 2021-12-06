@@ -30,8 +30,10 @@ export const generate = (params: IGeneratorParams) => {
           const distPath = dist.replace(/ignore\.tpl$/, 'ignore')
           const stat = fs.statSync(filepath)
           if (stat.isDirectory()) {
-            fs.copySync(filepath, dist, (src: string) => {
-              return !src.includes('.tpl')
+            fs.copySync(filepath, dist, {
+              filter: (src: string) => {
+                return src.includes('.tpl')
+              },
             })
             return
           }
