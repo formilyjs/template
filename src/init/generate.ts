@@ -30,16 +30,13 @@ export const generate = (params: IGeneratorParams) => {
           const distPath = dist.replace(/ignore\.tpl$/, 'ignore')
           const stat = fs.statSync(filepath)
           if (stat.isDirectory()) {
-            fs.copySync(filepath, dist, {
-              filter: (src: string) => {
-                return src.includes('.tpl')
-              },
-            })
+            if (filepath.includes('.tpl')) return
+            fs.copySync(filepath, dist)
             return
           }
           const contents = fs.readFileSync(filepath, 'utf-8')
           const template = ejs.compile(contents)
-          fs.writeFileSync(distPath, template(params))
+          fs.outputFileSync(distPath, template(params))
         })
         console.log('🎉🎉 generate success!')
         resolve(0)
