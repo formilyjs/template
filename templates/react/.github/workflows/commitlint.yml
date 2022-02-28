@@ -4,7 +4,7 @@ name: Check Commit spec
 
 # Controls when the action will run.
 on:
-  # Triggers the workflow on push or pull request events but only for the formily_next branch
+  # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [master]
   pull_request:
