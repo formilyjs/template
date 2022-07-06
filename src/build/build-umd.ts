@@ -7,6 +7,7 @@ import NpmImport from 'less-plugin-npm-import'
 import ignoreImport from 'rollup-plugin-ignore-import'
 import externalGlobals from 'rollup-plugin-external-globals'
 import dts from 'rollup-plugin-dts'
+import css from 'rollup-plugin-import-css'
 import { OutputOptions, rollup, RollupOptions } from 'rollup'
 import { terser } from 'rollup-plugin-terser'
 import { paramCase } from 'param-case'
@@ -67,6 +68,7 @@ const presets = () => {
         },
       },
     }),
+    css(),
     resolve(),
     commonjs(),
     externalGlobals(externals),
