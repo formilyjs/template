@@ -9,12 +9,14 @@ export const copyStyleFiles = () => {
       if (err) return reject(err)
       files.forEach((filename) => {
         const filepath = path.resolve(cwd, filename)
-        const distPathEs = filepath
+        const distNameEs = filename
           .replace(/src\//, 'esm/')
           .replace(/src\\/, 'esm\\')
-        const distPathLib = filepath
+        const distNameLib = filename
           .replace(/src\//, 'lib/')
           .replace(/src\\/, 'lib\\')
+        const distPathEs = path.resolve(cwd, distNameEs)
+        const distPathLib = path.resolve(cwd, distNameLib)
         fs.copySync(filepath, distPathEs)
         fs.copySync(filepath, distPathLib)
       })
